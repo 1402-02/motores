@@ -19,6 +19,6 @@ while True:
     Datos = str(ref.child('GradosMPP').get())
     Datos2 = str(ref.child('GradosSM').get())
     cadena = Datos+", "+Datos2
-    print(Datos)
+    print(Datos+"Hola mundo")
     time.sleep(2)
     serialArduino.write(cadena.encode('ascii'))
