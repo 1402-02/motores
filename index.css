@@ -1,0 +1,24 @@
+body{
+    background-color: rgb(50, 48, 196);
+}
+
+div{
+    flex-direction: column;
+}
+
+label{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 21px;
+}
+
+button{
+    background-color: #4CAF50; /* Green */
+    border-style: groove;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

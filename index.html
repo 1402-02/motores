@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CONTROLADOR DE LOS GRADOS</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div>
+        <container>
+            <label>Digite los grados del primer motor: </label>
+            <input id="GradosMPP" classname="Input" />
+            <button id="Recibe1" classname="Button">Aceptar</button>
+        </container>
+        <container>
+          <label>Digite los grados del segundo motor: </label>
+          <input id="GradosSM" classname="Input" />
+          <button id="Recibe2" classname="Button">Aceptar</button>
+      </container>
+    </div>
+    <script type="module">
+      import { initializeApp } from "firebase/app";
+      import { getAnalytics } from "firebase/analytics";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCVeFOw7EV-6sB8qMBtVRKMxMv-YwakNlM",
+        authDomain: "motores-8f37a.firebaseapp.com",
+        projectId: "motores-8f37a",
+        storageBucket: "motores-8f37a.appspot.com",
+        messagingSenderId: "532566600312",
+        appId: "1:532566600312:web:7b318799043f59ad2ddb8d",
+        measurementId: "G-GPKRL6LPJ6"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      import {
+        getDatabase,
+        get,
+        ref,
+        set,
+        child,
+        update,
+        remove,
+      } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
+
+      var Grados = document.getElementById("GradosMPP");
+      var BtnRecibe = document.getElementById("Recibe1");
+      var Grados2 = document.getElementById("GradosSM");
+      var BtnRecibe2 = document.getElementById("Recibe2");
+      const db = getDatabase();
+
+      function UpdateData() {
+        update(ref(db, "Grados/"), {
+            GradosMPP: GradosMPP.value,
+            GradosSM: GradosSM.value,
+        })
+          .then(() => {
+            alert("Con exito");
+          })
+          .catch(() => {
+            alert("Sin exito");
+          });
+      }
+
+      BtnRecibe.addEventListener("click", UpdateData);
+    </script>
+    
+    <!--<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    -->
+  </body>
+</html>
