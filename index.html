@@ -12,13 +12,10 @@
         <container>
             <label>Digite los grados del primer motor: </label>
             <input id="GradosMPP" classname="Input" />
+            <label>Digite los grados del segundo motor: </label>
+            <input id="GradosSM" classname="Input" />
             <button id="Recibe1" classname="Button">Aceptar</button>
         </container>
-        <container>
-          <label>Digite los grados del segundo motor: </label>
-          <input id="GradosSM" classname="Input" />
-          <button id="Recibe2" classname="Button">Aceptar</button>
-      </container>
     </div>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
@@ -53,9 +50,8 @@
       } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
 
       var Grados = document.getElementById("GradosMPP");
-      var BtnRecibe = document.getElementById("Recibe1");
       var Grados2 = document.getElementById("GradosSM");
-      var BtnRecibe2 = document.getElementById("Recibe2");
+      var BtnRecibe = document.getElementById("Recibe1");
       const db = getDatabase();
 
       function UpdateData() {
@@ -72,7 +68,6 @@
       }
 
       BtnRecibe.addEventListener("click", UpdateData);
-      BtnRecibe2.addEventListener("click", UpdateData);
     </script>
     
     <!--<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
